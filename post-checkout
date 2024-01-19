@@ -1,0 +1,11 @@
+#!/bin/zsh
+echo '----------'
+echo 'UPDATE TAG'
+echo '----------'
+ctags -R
+gtags --incremental
+
+echo '----------'
+echo 'DONE'
+echo '----------'
+exit 1
