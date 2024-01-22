@@ -1,11 +1,18 @@
 #!/bin/zsh
-echo '----------'
-echo 'UPDATE TAG'
-echo '----------'
-ctags -R
-gtags --incremental
+if [[ -e tags ]]; then
+    echo '----------'
+    echo 'UPDATE ctags'
+    echo '----------'
 
-echo '----------'
-echo 'DONE'
-echo '----------'
+    ctags -R 2>&1 /dev/null
+fi
+
+if [[ -e GTAGS ]]; then
+    echo '----------'
+    echo 'UPDATE gtags'
+    echo '----------'
+
+    gtags --incremental 2>&1 > /dev/null
+fi
+
 exit 1
